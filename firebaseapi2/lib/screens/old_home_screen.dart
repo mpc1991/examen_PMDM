@@ -1,4 +1,4 @@
-import 'package:firebaseapi/screens/loading_screen.dart';
+import 'package:firebaseapi/screens/old_loading_screen.dart';
 import 'package:firebaseapi/services/old_plats_services.dart';
 import 'package:firebaseapi/widgets/old_plat_card.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
     
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Screen'),
+        title: Text('Home Screen2'),
       ),
 
       body: ListView.builder(
