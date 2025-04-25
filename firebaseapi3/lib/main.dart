@@ -1,5 +1,6 @@
+import 'package:firebaseapi/screens/mapa_screen.dart';
 import 'package:firebaseapi/screens/old_home_screen.dart';
-import 'package:firebaseapi/screens/plat_form_screen.dart';
+import 'package:firebaseapi/screens/old_plat_form_screen.dart';
 import 'package:firebaseapi/services/old_plats_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
       routes: {
         'home': (_) => HomeScreen(),
         'plat': (_) => ProductScreen(),
+        'mapa': (_) => MapaScreen(),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,

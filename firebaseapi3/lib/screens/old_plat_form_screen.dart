@@ -1,7 +1,8 @@
-import 'package:firebaseapi/provider/plat_form_provider.dart';
+import 'package:firebaseapi/models/scan_model.dart';
+import 'package:firebaseapi/provider/old_plat_form_provider.dart';
 import 'package:firebaseapi/services/old_plats_services.dart';
-import 'package:firebaseapi/ui/input_decorations.dart';
-import 'package:firebaseapi/widgets/plat_image.dart';
+import 'package:firebaseapi/ui/old_input_decorations.dart';
+import 'package:firebaseapi/widgets/old_plat_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -99,36 +100,52 @@ class _PlatsScreenBody extends StatelessWidget {
         ),
       ),
 
-      // Botón flotante para guardar el producto
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      floatingActionButton: FloatingActionButton(
-          child: platsServices.isSaving //IF
-          ? CircularProgressIndicator(color: Colors.white) // true
-          : Icon(Icons.save_outlined), // Icono de guardar // false
+      // Botones flotantes
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Row(
+        children: [
 
-          onPressed: platsServices.isSaving //if
-          ? null // Si se está guardando, deshabilita el botón
-          : (() async { // false
-            //Emmagatzemar producte
-            if (!productForm.isValidForm()) { // validamos si el formulario es valido
-              return;
-            } else {
-              
-              // llama a uploadImage
-              final String? imageUrl = await platsServices.uploadImage();
+          // botón a la izq para ir al mapa
+          FloatingActionButton(
+            heroTag: 'btn-cancel', // heroTag único
+            onPressed: (){
+              final plat = platsServices.selectedPlat;
+              final scan = ScanModel(valor: plat.geo); // 
 
-              // Si se ha subido una imagen nueva, actualizamos la URL en el producto temporal
-              if (imageUrl != null) {
-                productForm.tempPlat.foto = imageUrl;
-              }
-              // Llama a saveOrCreateProduct() que decide si crear o actualizar
-              // en services/productServices
-              platsServices.saveOrCreateProduct(productForm.tempPlat);
-
-              
-            }
-
-          })),
+              Navigator.of(context).pushNamed('mapa', arguments: scan);
+              //Navigator.of(context).pop(); // Por ejemplo: volver atrás
+            },
+            child: Icon(Icons.cancel),
+          ),
+          
+          // Botón a la derecha para guardar
+          FloatingActionButton(
+              child: platsServices.isSaving //IF
+              ? CircularProgressIndicator(color: Colors.white) // true
+              : Icon(Icons.save_outlined), // Icono de guardar // false
+          
+              onPressed: platsServices.isSaving //if
+              ? null // Si se está guardando, deshabilita el botón
+              : (() async { // false
+                //Emmagatzemar producte
+                if (!productForm.isValidForm()) { // validamos si el formulario es valido
+                  return;
+                } else {
+                  
+                  // llama a uploadImage
+                  final String? imageUrl = await platsServices.uploadImage();
+          
+                  // Si se ha subido una imagen nueva, actualizamos la URL en el producto temporal
+                  if (imageUrl != null) {
+                    productForm.tempPlat.foto = imageUrl;
+                  }
+                  // Llama a saveOrCreateProduct() que decide si crear o actualizar
+                  // en services/productServices
+                  platsServices.saveOrCreateProduct(productForm.tempPlat);
+                }
+              })),
+        ],
+      ),
     );
   }
 }
