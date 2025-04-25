@@ -4,6 +4,9 @@ import 'package:firebaseapi/models/scan_model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+// Configurar la API KEY en androidmanifest
+//android/app/src/androidmanifest
+
 class MapaScreen extends StatefulWidget {
   const MapaScreen({Key? key}) : super(key: key);
 
