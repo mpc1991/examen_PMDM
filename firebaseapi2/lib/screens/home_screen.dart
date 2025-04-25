@@ -1,6 +1,6 @@
 import 'package:firebaseapi/screens/loading_screen.dart';
-import 'package:firebaseapi/services/plats_services.dart';
-import 'package:firebaseapi/widgets/plat_card.dart';
+import 'package:firebaseapi/services/old_plats_services.dart';
+import 'package:firebaseapi/widgets/old_plat_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

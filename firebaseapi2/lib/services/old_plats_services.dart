@@ -1,7 +1,7 @@
 
 import 'dart:convert';
 
-import 'package:firebaseapi/models/plat.dart';
+import 'package:firebaseapi/models/old_plat.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
