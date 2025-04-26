@@ -11,4 +11,12 @@ Consulta postman https://fir-api-8ad8b-default-rtdb.europe-west1.firebasedatabas
 https://app.quicktype.io/
 Generar el jSON
 
-## class models/plats.dart
+Examen practico:
+log-in / log-out. https://github.com/mpc1991/examen_PMDM/tree/main/loginform
+
+1 - listar objetos FireBase (card): https://github.com/mpc1991/examen_PMDM/tree/main/firebaseapi
+1.1 - listar objetos FireBase (card, slider,swiper): https://github.com/mpc1991/examen_PMDM/tree/main/firebaseapi1_cardswipe
+1.2 -listar objetos reqres; https://github.com/mpc1991/examen_PMDM/tree/main/firebaseapi1_reqres
+2 - + Entrar en el form + CRUD: https://github.com/mpc1991/examen_PMDM/tree/main/firebaseapi2
+3 - + Google maps (geo): https://github.com/mpc1991/examen_PMDM/tree/main/firebaseapi3
+3.1- + Google maps (geo+http): https://github.com/mpc1991/examen_PMDM/tree/main/firebaseapi3_http
