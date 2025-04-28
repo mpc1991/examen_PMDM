@@ -46,6 +46,7 @@ class _LoginFormState extends State<LoginForm> {
           key: _formKey,
           child: Column(
             children: [
+              
               TextFormField( // jtextField para el usuario
                 controller: _emailController, // Asignar controlador, vincula al att _emailController.
                 // Validar el input

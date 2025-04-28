@@ -21,18 +21,28 @@ class ScanModel {
   }
 
   LatLng getLatLng() {
-  String cleaned;
+    String cleaned;
 
-  if (valor.startsWith('geo:')) {
-    cleaned = valor.substring(4); // Quitamos el "geo:"
-  } else {
-    cleaned = valor; // Directamente números: "39.5870208,2.6476544"
+    if (valor.startsWith('geo:')) {
+      cleaned = valor.substring(4); // Quitamos el "geo:"
+    } else {
+      cleaned = valor; // Directamente números: "39.5870208,2.6476544"
+    }
+    final latLng = cleaned.split(',');
+    final latitude = double.parse(latLng[0]);
+    final longitude = double.parse(latLng[1]);
+
+    return LatLng(latitude, longitude);
   }
-  final latLng = cleaned.split(',');
-  final latitude = double.parse(latLng[0]);
-  final longitude = double.parse(latLng[1]);
 
-  return LatLng(latitude, longitude);
+  String getLatlng2(){
+    String cleaned;
+    if (valor.startsWith('geo:')) {
+      cleaned = valor.substring(4); // Quitamos el "geo:"
+    } else {
+      cleaned = valor; // Directamente números: "39.5870208,2.6476544"
+    }
+    return cleaned;
   }
 
   // 🔥🔥 Añadimos este método dentro de la clase
@@ -43,6 +53,7 @@ class ScanModel {
         //throw 'No se pudo abrir $valor';
       }
     } else {
+      valor = getLatlng2();
       Navigator.pushNamed(context, 'mapa', arguments: this);
     }
   }
